@@ -112,6 +112,7 @@ public class BottomSheet extends Dialog implements BaseFragment.AttachedSheet {
     private CharSequence title;
     private boolean bigTitle;
     private boolean multipleLinesTitle;
+    private int topInset;
     private int bottomInset;
     private int leftInset;
     private int rightInset;
@@ -538,6 +539,7 @@ public class BottomSheet extends Dialog implements BaseFragment.AttachedSheet {
             keyboardVisible = keyboardHeight > AndroidUtilities.dp(20);
             if (lastInsets != null && Build.VERSION.SDK_INT >= 21) {
                 bottomInset = lastInsets.getSystemWindowInsetBottom();
+                topInset = lastInsets.getSystemWindowInsetTop();
                 leftInset = lastInsets.getSystemWindowInsetLeft();
                 rightInset = lastInsets.getSystemWindowInsetRight();
                 if (Build.VERSION.SDK_INT >= 29) {
@@ -2164,6 +2166,9 @@ public class BottomSheet extends Dialog implements BaseFragment.AttachedSheet {
 
     public int getBottomInset() {
         return (int) (bottomInset * (1f - hideSystemVerticalInsetsProgress));
+    }
+    public int getTopInset() {
+        return (int) (topInset * (1f - hideSystemVerticalInsetsProgress));
     }
 
     public void onConfigurationChanged(android.content.res.Configuration newConfig) {

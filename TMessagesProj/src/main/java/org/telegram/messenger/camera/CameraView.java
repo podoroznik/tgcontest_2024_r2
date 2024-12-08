@@ -506,7 +506,7 @@ public class CameraView extends FrameLayout implements TextureView.SurfaceTextur
         pixelH = getMeasuredHeight();
         if (pixelDualW <= 0) {
             pixelDualW = getMeasuredWidth();
-            pixelDualH = getMeasuredHeight();
+            pixelDualH = pixelDualW * 16 / 9;
         }
     }
 
@@ -1158,7 +1158,7 @@ public class CameraView extends FrameLayout implements TextureView.SurfaceTextur
     private VideoRecorder videoEncoder;
 
     private volatile float pixelW, pixelH;
-    private volatile float pixelDualW, pixelDualH;
+    public volatile float pixelDualW, pixelDualH;
     private volatile float lastShapeTo;
     private volatile float shapeValue;
 
