@@ -4213,6 +4213,7 @@ public class ChatAttachAlertPhotoLayout extends ChatAttachAlert.AttachAlertLayou
             videoTimerView.setRecording(false, false);
             videoTimerView.setDuration(0, true);
             checkCamera(false);
+            setCameraFlashModeIcon(getCurrentFlashMode(), true);
             if (cameraView != null) {
                 CameraController.getInstance().startPreview(cameraView.getCameraSessionObject());
             }
